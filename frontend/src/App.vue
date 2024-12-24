@@ -1,7 +1,9 @@
 <template>
   <div>
     <Navbar />
-    <router-view />
+    <div id="main-contain">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -16,5 +18,9 @@ import Navbar from '@/components/Navbar.vue';
 }
 #app {
   height: 100vh;
+}
+#main-contain {
+  height: calc(100vh - 60px);
+  /* background: red; */
 }
 </style>
