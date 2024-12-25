@@ -8,6 +8,7 @@
     <el-menu-item index="/login">登录</el-menu-item>
     <el-menu-item index="/register">注册</el-menu-item>
     <el-menu-item index="/ground">广场</el-menu-item>
+    <el-menu-item index="/detail">详细</el-menu-item>
     <el-menu-item index="/information">消息</el-menu-item>
   </el-menu>
 </template>

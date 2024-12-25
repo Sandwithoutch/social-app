@@ -1,6 +1,6 @@
 <template>
   <el-row class="ground-contain">
-    <el-col class="content-layout" :span="16">
+    <el-col class="content-layout" :span="18">
       <div class="content-top">
         <!-- 分段控制器 -->
         <el-segmented v-model="value" :options="tabOptions">
@@ -13,68 +13,14 @@
         </el-segmented>
       </div>
       <div class="content-main">
-        <el-card>
-          <template #header>
-            <div class="card-header">
-              <div class="card-header-left">
-                <div class="avatar">
-                  <el-avatar
-                    :size="50"
-                    :src="'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'"
-                  />
-                </div>
-                <div class="info">
-                  <div class="info-name">AAAA</div>
-                  <div class="info-status">5分钟之前</div>
-                </div>
-              </div>
-              <div class="card-header-right">
-                <el-icon class="card-header-right-icon"><MoreFilled /></el-icon>
-              </div>
-            </div>
-          </template>
-          <h3>主题1</h3>
-          <span v-for="o in 6" :key="o" class="text item">
-            {{ 'List item ' + o }}
-          </span>
-          <template #footer>
-            <div class="card-footer">
-              <div class="card-footer-tag">
-                <el-tag type="info">Tag 1</el-tag>
-                <el-tag type="info">Tag 2</el-tag>
-                <el-tag type="info">Tag 3</el-tag>
-              </div>
-              <div class="card-footer-feedbackinfo">
-                <div class="card-footer-feedbackinfo-icon">
-                  <el-icon><View /></el-icon>124
-                </div>
-                <div class="card-footer-feedbackinfo-icon">
-                  <el-icon><ChatSquare /></el-icon>101
-                </div>
-                <div class="card-footer-feedbackinfo-icon">
-                  <el-icon><Share /></el-icon>33
-                </div>
-              </div>
-            </div>
-          </template>
-        </el-card>
+        <UpdateCard />
+        <UpdateCard />
+        <UpdateCard />
       </div>
     </el-col>
-    <el-col class="person-information-layout" :span="8">
+    <el-col class="person-information-layout" :span="6">
       <div class="person-top">
-        <el-card class="person-top-card">
-          <div class="person-avatar">
-            <el-avatar
-              :size="150"
-              :src="'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'"
-            />
-          </div>
-          <div class="person-name">用户名XXX</div>
-          <el-divider />
-          <div class="person-tumb">点赞数(200)</div>
-          <el-divider />
-          <div class="person-introduce">简介：一个爱分享的</div>
-        </el-card>
+        <BasicInfoCard />
       </div>
       <div class="person-bottom">
         <el-card class="person-bottom-card">
@@ -111,6 +57,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import UpdateCard from '@/components/UpdateCard.vue';
+import BasicInfoCard from '@/components/BasicInfoCard.vue';
+
 const value = ref('最新动态');
 const arr = ['12311', 'abc', '你哦'];
 const cards = [
@@ -152,6 +101,8 @@ const tabOptions = [
 
 .content-layout {
   padding: 0 5%;
+  height: 96%;
+  overflow-y: auto;
 }
 
 .content-top {
@@ -160,6 +111,9 @@ const tabOptions = [
 
 .content-main {
   margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .el-segmented {
@@ -179,11 +133,12 @@ const tabOptions = [
 .card-header-right-icon {
   transform: rotate(90deg);
 }
-/* .person-information-layout {
+.person-information-layout {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 30px;
-} */
+}
 
 .person-top {
   display: flex;

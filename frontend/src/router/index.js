@@ -28,6 +28,11 @@ const routes = [
     name: 'ground',
     component: () => import('@/views/GroundPage.vue')
   },
+    {
+    path: '/detail',
+    name: 'detail',
+    component: () => import('@/views/UpdateDetail.vue')
+  },
   {
     path: '/upload',
     name: 'upload',
